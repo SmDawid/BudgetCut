@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MVCTemplate.Models.Service>
+
+<h1 class="text-center my-4">Nasze Usługi</h1>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @foreach (var service in Model)
+    {
+        <div class="col">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="~/images/@service.ImageFile" class="card-img-top" alt="@service.Name" />
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title mb-3">@service.Name</h5>
+                        <p class="card-info text-muted mb-4">
+                            <strong>Cena:</strong> @service.Price PLN<br />
+                            <strong>Czas trwania:</strong> @service.Duration minut
+                        </p>
+                    </div>
+                    <div>
+                        @if (service.IsAvailable)
+                        {
+                            <span class="badge bg-success text-white">Dostępna</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger text-white">Niedostępna</span>
+                        }
+                    </div>
+                </div>
+                <div class="card-footer bg-white text-end border-top-0">
+                    <a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@service.Id">Zobacz szczegóły</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,23 @@
+﻿@model MVCTemplate.Models.Service
+
+<h1>Szczegóły usługi</h1>
+
+<div class="service-details">
+    <p><strong>Nazwa:</strong> @Model.Name</p>
+    <p><strong>Opis:</strong> @Model.Description</p>
+    <p><strong>Cena:</strong> @Model.Price PLN</p>
+    <p><strong>Czas trwania:</strong> @Model.Duration minut</p>
+    <p>
+        <strong>Dostępność:</strong>
+        @if (Model.IsAvailable)
+        {
+            <span style="color: green;">Dostępna</span>
+        }
+        else
+        {
+            <span style="color: red;">Niedostępna</span>
+        }
+    </p>
+</div>
+
+<a class="btn btn-secondary" asp-action="Overview">Powrót do listy usług</a>
