@@ -64,7 +64,7 @@ using (var scope = app.Services.CreateScope())
 
     //konto administratora
     var adminEmail = "admin@admin.com";
-    var adminPassword = "123";
+    var adminPassword = "Admin123";
     if (await userManager.FindByEmailAsync(adminEmail) == null)
     {
         var adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail };
@@ -83,6 +83,10 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
+
+app.MapControllerRoute(
+    name: "admin",
+    pattern: "{controller=Admin}/{action=AdminPanel}/{id?}");
 
 
 app.Run();
