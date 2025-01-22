@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using AspNetCoreGeneratedDocument;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MVCTemplate.Models;
 
@@ -24,7 +25,14 @@ public class AccountController : Controller
     {
         if (ModelState.IsValid)
         {
-            var user = new IdentityUser { UserName = model.Email, Email = model.Email };
+            var user = new IdentityUser 
+            { 
+                UserName = model.Email, 
+                Email = model.Email,
+                //RegistrationDate = model.RegistrationDate
+                
+            };
+
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {

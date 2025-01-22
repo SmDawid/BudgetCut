@@ -42,7 +42,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 
-// Dodaj kod do tworzenia ról
+//kod do tworzenia ról
 using (var scope = app.Services.CreateScope())
 {
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
@@ -57,7 +57,7 @@ using (var scope = app.Services.CreateScope())
         }
     }
 
-    // Opcjonalnie: Dodaj konto administratora
+    //konto administratora
     var adminEmail = "admin@admin.com";
     var adminPassword = "123";
     if (await userManager.FindByEmailAsync(adminEmail) == null)
