@@ -5,7 +5,7 @@ namespace MVCTemplate.Models;
 
     public class ApplicationUser : IdentityUser
     {
-        public DateTime RegistrationDate { get; set; }
+        //public DateTime RegistrationDate { get; set; }
         
     }
 

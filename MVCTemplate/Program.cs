@@ -53,7 +53,7 @@ using (var scope = app.Services.CreateScope())
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
-    string[] roleNames = { "Admin", "Staff", "User" };
+    string[] roleNames = { "Admin", "User" };
     foreach (var roleName in roleNames)
     {
         if (!await roleManager.RoleExistsAsync(roleName))
@@ -65,6 +65,7 @@ using (var scope = app.Services.CreateScope())
     //konto administratora
     var adminEmail = "admin@admin.com";
     var adminPassword = "Admin123";
+   
     if (await userManager.FindByEmailAsync(adminEmail) == null)
     {
         var adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail };
@@ -74,6 +75,10 @@ using (var scope = app.Services.CreateScope())
             await userManager.AddToRoleAsync(adminUser, "Admin");
         }
     }
+
+
+
+
 }
 
 
@@ -90,3 +95,4 @@ app.MapControllerRoute(
 
 
 app.Run();
+

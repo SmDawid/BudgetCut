@@ -1,12 +1,88 @@
-﻿<section class="contact">
-    <div class="container">
+﻿@{
+    ViewBag.Title = "Kontakt - Budżetowe Cięcie";
+}
+
+@{
+    Layout = "_Layout";
+}
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        background: url('/images/background2.png') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .centered-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 160px); /* Odejmij wysokość nagłówka i stopki */
+    }
+
+    .content-box {
+        max-width: 800px;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 24px;
+        color: #333;
+    }
+
+    p {
+        font-size: 16px;
+        color: #666;
+    }
+
+    .contact-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .contact-item {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .contact-item h3 {
+            margin-top: 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .contact-item p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .contact-item a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+            .contact-item a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<div class="centered-container">
+    <div class="content-box">
         <h2 class="contact-title">Budżetowe Cięcie - Twój salon fryzjerski</h2>
 
         <div class="contact-info">
             <div class="contact-item">
                 <h3>Adres</h3>
                 <p>ul. Stylowa 10<br>00-001 Warszawa</p>
-                <p><a href="https://www.google.com/maps/place/School+of+Banking+in+Chorzow/">Mapy Google</a></p>
             </div>
 
             <div class="contact-item">
@@ -38,77 +114,7 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<style>
-    html, body {
-        height: 100%;
-        margin: 0;
-        background: url('/images/background2.png') no-repeat center center fixed;
-        background-size: cover;
-        overflow: hidden;
-    }
-
-    .contact {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        background-color: rgba(249, 249, 249, 0.9);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
-
-    .container {
-        max-width: 1000px;
-        max-height: 500px;
-        background-color: transparent; 
-        padding: 0px;
-        border-radius: 8px;
-        box-shadow: none; 
-    }
-
-    .contact-title {
-        text-align: center;
-        font-size: 24px;
-        margin-bottom: 20px;
-        color: #333;
-    }
-
-    .contact-info {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); 
-        gap: 25px;
-    }
-
-    .contact-item {
-        background-color: #fff;
-        padding: 15px;
-        border-radius: 8px;
-        border-color: #007bff;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-        .contact-item h3 {
-            margin-top: 0;
-            font-size: 18px;
-            color: #555;
-        }
-
-        .contact-item p {
-            margin: 5px 0;
-            font-size: 16px;
-            color: #666;
-        }
-
-        .contact-item a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-
-            .contact-item a:hover {
-                text-decoration: underline;
-            }
-</style>
 
 

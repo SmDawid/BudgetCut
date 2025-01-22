@@ -15,7 +15,7 @@ namespace MVCTemplate.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-
+       
         [HttpGet]
         public IActionResult Register()
         {
@@ -56,6 +56,8 @@ namespace MVCTemplate.Controllers
             return View();
         }
 
+
+        /*
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
@@ -73,6 +75,34 @@ namespace MVCTemplate.Controllers
                 }
             }
             return View(model);
+        }
+
+        */
+
+        [HttpPost]
+        public async Task<IActionResult> Login(string email, string password)
+        {
+            if (email == "admin@admin.com" && password == "Admin123")
+            {
+                HttpContext.Session.SetString("Admin", "true");
+                return RedirectToAction("Index", "Admin");
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(email, password, false, false);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            return View();
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            HttpContext.Session.Remove("Admin");
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

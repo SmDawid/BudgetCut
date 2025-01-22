@@ -1,8 +1,66 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Budżetowe Cięcie - Salon Fryzjerski";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@{
+    Layout = "_Layout";
+}
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        background: url('/images/background2.png') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .centered-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 160px); /* Odejmij wysokość nagłówka i stopki */
+    }
+
+    .content-box {
+        max-width: 800px;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 24px;
+        color: #333;
+    }
+
+    p {
+        font-size: 16px;
+        color: #666;
+    }
+</style>
+
+<div class="centered-container">
+    <div class="content-box">
+        <main>
+            <h1>Witamy w salonie fryzjerskim "Budżetowe Cięcie"!</h1>
+            <p>
+                Szukasz profesjonalnej stylizacji w przystępnej cenie? "Budżetowe Cięcie" to idealne miejsce dla Ciebie!
+                Nasz zespół doświadczonych fryzjerów zadba o Twoje włosy, oferując najwyższą jakość usług bez nadwyrężania Twojego portfela.
+            </p>
+            <p>
+                Od klasycznych cięć po najnowsze trendy - zapraszamy do zapoznania się z naszą ofertą w zakładce Cennik.
+            </p>
+            <p>
+                Zrelaksuj się w miłej atmosferze i pozwól nam zadbać o Twój wygląd.
+            </p>
+            <p>
+                Zarezerwuj wizytę już dziś i przekonaj się, że piękne włosy nie muszą kosztować fortuny!
+            </p>
+        </main>
+    </div>
 </div>
+
+
+
