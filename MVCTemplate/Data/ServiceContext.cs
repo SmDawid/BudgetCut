@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MVCTemplate.Data
 {
@@ -10,5 +11,6 @@ namespace MVCTemplate.Data
 
 
         } 
+        public DbSet<Models.Service> Services { get; set; }
     }
 }
