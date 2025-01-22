@@ -12,9 +12,9 @@ namespace MVCTemplate.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Display(Name = "Zapamiętaj mnie")]
-        public bool RememberMe { get; set; }
+        //[Display(Name = "Zapamiętaj mnie")]
+        //public bool RememberMe { get; set; }
 
-        public DateTime LoginDateTime { get; set; } = DateTime.Now;
+        //public DateTime LoginDateTime { get; set; } = DateTime.Now;
     }
 }
