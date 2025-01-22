@@ -1,0 +1,128 @@
+﻿@model MVCTemplate.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Zaloguj się";
+}
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        background: url('/images/background2.png') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 160px);
+    }
+
+    .login-form {
+        width: 100%;
+        max-width: 400px; 
+        padding: 20px;
+        border: 2px solid #007bff;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        text-align: center;
+    }
+
+    .login-button {
+        margin-top: 25px;
+    }
+
+    .form-group label {
+        text-align: left;
+        display: block;
+    }
+
+    .text-danger {
+        color: red;
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-form">
+        <h2>@ViewData["Title"]</h2>
+        <form id="loginForm" asp-action="Login" method="post" novalidate>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Adres e-mail</label>
+                <input asp-for="Email" class="form-control" name="Email" required />
+                <span asp-validation-for="Email" class="text-danger" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Hasło</label>
+                <input asp-for="Password" class="form-control" name="Password" required />
+                <span asp-validation-for="Password" class="text-danger" id="passwordError"></span>
+            </div>
+            <div class="form-group login-button">
+                <button type="submit" class="btn btn-primary">Zaloguj</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>    //WALIDACJA PO STRONIE JAVASCRIPT
+       document.addEventListener('DOMContentLoaded', function () {
+           console.log('Skrypt załadowany');
+           document.getElementById('loginForm').addEventListener('submit', function (event) {
+               console.log('Walidacja formularza');
+               var form = event.target;
+               var isValid = true;
+
+               // Walidacja pola Email
+               var emailInput = form.querySelector('[name="Email"]');
+               var emailError = document.getElementById('emailError');
+               console.log('Email:', emailInput.value);
+               if (!emailInput.validity.valid) {
+                   if (emailInput.validity.valueMissing) {
+                       emailInput.setCustomValidity('Adres e-mail jest wymagany');
+                       emailError.textContent = 'Adres e-mail jest wymagany';
+                       console.log('Adres e-mail jest wymagany');
+                   } else if (emailInput.validity.typeMismatch) {
+                       emailInput.setCustomValidity('Nieprawidłowy format adresu e-mail');
+                       emailError.textContent = 'Nieprawidłowy format adresu e-mail';
+                       console.log('Nieprawidłowy format adresu e-mail');
+                   } else {
+                       emailInput.setCustomValidity('');
+                       emailError.textContent = '';
+                   }
+                   isValid = false;
+               } else {
+                   emailInput.setCustomValidity('');
+                   emailError.textContent = '';
+               }
+
+               // Walidacja pola Password
+               var passwordInput = form.querySelector('[name="Password"]');
+               var passwordError = document.getElementById('passwordError');
+               console.log('Password:', passwordInput.value);
+               if (!passwordInput.validity.valid) {
+                   if (passwordInput.validity.valueMissing) {
+                       passwordInput.setCustomValidity('Hasło jest wymagane');
+                       passwordError.textContent = 'Hasło jest wymagane';
+                       console.log('Hasło jest wymagane');
+                   } else {
+                       passwordInput.setCustomValidity('');
+                       passwordError.textContent = '';
+                   }
+                   isValid = false;
+               } else {
+                   passwordInput.setCustomValidity('');
+                   passwordError.textContent = '';
+               }
+
+
+               
+
+               if (!isValid) {
+                   event.preventDefault();
+                   console.log('Formularz nie jest poprawny');
+               } else {
+                   console.log('Formularz jest poprawny');
+               }
+           });
+       });
+</script>

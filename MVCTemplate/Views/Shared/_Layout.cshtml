@@ -39,6 +39,16 @@
             margin-right: 10px;
         }
 
+
+        footer { 
+            background-color: white;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -64,6 +74,9 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-primary btn-custom" asp-area="" asp-controller="Account" asp-action="Login">Logowanie</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link btn btn-primary btn-custom" asp-area="" asp-controller="Account" asp-action="Register">Zarejestruj się</a>
                         </li>
