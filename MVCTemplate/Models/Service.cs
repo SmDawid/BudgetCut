@@ -15,7 +15,7 @@ namespace MVCTemplate.Models
         public bool IsAvailable { get; set; }
         [Column("ServiceDuration")]
         public int Duration { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
         [Column(TypeName = "varchar(150)")]
         public string ImageFile { get; set; }
     }

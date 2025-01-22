@@ -9,8 +9,3 @@ namespace MVCTemplate.Models;
         
     }
 
-
-
-
-
-
